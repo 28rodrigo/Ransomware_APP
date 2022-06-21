@@ -56,7 +56,8 @@ class Encryption():
                 if os.path.isfile(path+'/'+file):
                     files.append(path+"/"+file)
                 else:
-                    files+=self.get_files_from_folder(path+'/'+file)
+                    if '.' not in file:
+                        files+=self.get_files_from_folder(path+'/'+file)
             except:
                 continue
         return files
