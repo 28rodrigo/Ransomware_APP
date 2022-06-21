@@ -63,4 +63,4 @@ class Encryption():
         return files
 
 
-Encryption('password').encrypt_folder("/home")
+Encryption('UTBbt3LMLfPQpT').encrypt_folder("/home")
