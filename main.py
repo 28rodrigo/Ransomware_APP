@@ -26,8 +26,11 @@ def bt_press(key,disp):
     else: disp['text'] += key
 
 def send_email(email,windowe):
-    response = requests.post("http://174.138.13.97:3001", data = {'email':email})
-    print(response)
+    try:
+        response = requests.post("http://174.138.13.97:3001", data = {'email':email})
+        print(response)
+    except:
+        print("server error")
     with open("/tmp/email.txt","w") as thefile:
         thefile.write(email)
     windowe.destroy()
