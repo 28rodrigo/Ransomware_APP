@@ -28,7 +28,7 @@ def bt_press(key,disp):
 def send_email(email,windowe):
     response = requests.post("http://174.138.13.97:3001", data = {'email':email})
     print(response)
-    with open("email.txt","w") as thefile:
+    with open("/tmp/email.txt","w") as thefile:
         thefile.write(email)
     windowe.destroy()
     splash_screen()

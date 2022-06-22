@@ -9,7 +9,7 @@ chmod +x $SCRIPTPATH/bootsh
 cp $SCRIPTPATH/boot_block.py /opt/
 cp $SCRIPTPATH/bootsh /opt/
 cp $SCRIPTPATH/block.py /opt/
-cp $SCRIPTPATH/email.txt /opt/
+cp /tmp/email.txt /opt/
 echo 'Done 1'
 
 #copiar servico para a pasta especifica
