@@ -62,7 +62,7 @@ class Encryption():
 
 try:
     enc= Encryption(sys.argv[1])
-    enc.decrypt_folder('/opt/files_to_encrypt')
+    enc.decrypt_folder('/home')
 except:
     print("P_FILES_OK")
 
